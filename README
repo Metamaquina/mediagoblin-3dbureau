@@ -1,0 +1,59 @@
+===========
+ 3D Bureau
+===========
+
+Does nothing yet.
+
+This plugin is licensed under the GNU APGL v3+.
+
+Installation
+============
+
+If you've checked out this plugin and mediagoblin in the same parent
+directory, you should be able to build and install with
+
+    ../mediagoblin/bin/python setup.py build
+    ../mediagoblin/bin/python setup.py install
+
+Tests
+=====
+
+After installing, run the built-in unit tests by invoking `python2
+setup.py test` in the root directory. The tests require an installed
+version of GNU MediaGoblin to be available for importing. If you've
+checked out this plugin and mediagoblin in the same parent directory,
+you should be able to run
+
+    ../mediagoblin/bin/python setup.py test
+
+
+Updating gettext
+================
+
+To create/update the English .pot template file from the translatable
+strings in the source code:
+
+    ../mediagoblin/bin/pybabel extract -F babel.ini -o mediagoblin_3dbureau/i18n/en/LC_MESSAGES/mediagoblin_3dbureau.pot .
+
+To create a new .po file for language "nn_NO":
+
+    ../mediagoblin/bin/pybabel init -D mediagoblin_3dbureau -i mediagoblin_3dbureau/i18n/en/LC_MESSAGES/mediagoblin_3dbureau.pot -d mediagoblin_3dbureau/i18n/ -l nn_NO
+
+To compile translated .po files into installable .mo files:
+
+    ../mediagoblin/bin/pybabel compile -D mediagoblin_3dbureau -d mediagoblin_3dbureau/i18n/
+
+To update previously created .po files with new messages after the
+.pot file changed:
+
+     ../mediagoblin/bin/pybabel update -D mediagoblin_3dbureau -i mediagoblin_3dbureau/i18n/en/LC_MESSAGES/mediagoblin_3dbureau.pot -d mediagoblin_3dbureau/i18n/
+
+
+TODO
+====
+
+* Make it actually work.
+
+* Make translations usable by mediagoblin. A hook in
+  template.get_jinja_env that appends gettext_callables? Or
+  mediagoblin could look in some standard path for all plugins.

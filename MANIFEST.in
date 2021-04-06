@@ -1,0 +1,5 @@
+include README*
+recursive-include mediagoblin_3dbureau *.html
+recursive-include mediagoblin_3dbureau *.mo
+recursive-include mediagoblin_3dbureau *.png
+recursive-include mediagoblin_3dbureau *.svg
